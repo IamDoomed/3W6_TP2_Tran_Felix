@@ -6,10 +6,17 @@ namespace NutriVie.Models.Data
     {
         public NutriVieDbContext(DbContextOptions<NutriVieDbContext> options) : base(options) { }
 
-        public DbSet<Aliment> Aliments { get; set; }
-        public DbSet<AlimentRecette> AlimentRecettes { get; set; }
-        public DbSet<Categorie> Categories { get; set; }
-        public DbSet<Recette> Recettes { get; set; }
+        public DbSet<Service> Services { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Service>().HasData(
+                new Service() { Id = 1, NomService = "Recettes Saines", Description= "Des recettes équilibrées et faciles à préparer pour toute la famille." },
+                new Service() { Id = 2, NomService = "Plans Nutritionnels", Description = "Des plans alimentaires personnalisés par nos nutritionnistes." },
+                new Service() { Id = 3, NomService = "Conseils d'Experts", Description = "Des articles et guides sur la nutrition et le bien-être." });
+
+
+        }
 
     }
 }
