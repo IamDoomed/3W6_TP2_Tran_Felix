@@ -29,10 +29,14 @@
                 @Html.DisplayFor(model => item.Nom)
             </td>
             <td>
-                    @foreach (var recette in item.Recettes)
+                    @if (item.Recettes != null)
                     {
-                        @Html.DisplayFor(model => recette.Nom)
+                        @foreach (var recette in item.Recettes)
+                        {
+                            @Html.DisplayFor(model => recette.Nom)<br />
+                        }
                     }
+                    
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

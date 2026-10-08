@@ -16,7 +16,8 @@ public class CategorieController : Controller
     // GET: CATEGORIES
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Categorie.ToListAsync());
+
+        return View(await _context.Categorie.Include(c => c.Recettes).ToListAsync());
     }
 
     // GET: CATEGORIES/Details/5
