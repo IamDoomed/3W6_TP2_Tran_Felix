@@ -17,7 +17,7 @@ public class RecetteController : Controller
     // GET: RECETTES
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Recette.ToListAsync());
+        return View(await _context.Recette.Include(c => c.Categorie).ToListAsync());
     }
 
     // GET: RECETTES/Details/5
@@ -29,6 +29,7 @@ public class RecetteController : Controller
         }
 
         var recette = await _context.Recette
+            .Include(c => c.Categorie)
             .FirstOrDefaultAsync(m => m.Id == id);
         if (recette == null)
         {

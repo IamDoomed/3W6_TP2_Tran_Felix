@@ -52,7 +52,7 @@
                 @Html.DisplayFor(model => item.Image)
             </td>
             <td>
-                @Html.DisplayFor(model => item.Categorie)
+                @Html.DisplayFor(model => item.Categorie.Nom)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

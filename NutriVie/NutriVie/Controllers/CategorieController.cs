@@ -29,6 +29,7 @@ public class CategorieController : Controller
         }
 
         var categorie = await _context.Categorie
+            .Include(c => c.Recettes)
             .FirstOrDefaultAsync(m => m.Id == id);
         if (categorie == null)
         {

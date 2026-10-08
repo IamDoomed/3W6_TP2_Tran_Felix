@@ -21,7 +21,14 @@
             @Html.DisplayNameFor(model => model.Recettes)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Recettes)
+        @if (Model.Recettes != null)
+        {
+            @foreach (var recette in Model.Recettes)
+            {
+                @Html.DisplayFor(model => recette.Nom)
+                <br />
+            }
+        }
         </dd>
     </dl>
 </div>
