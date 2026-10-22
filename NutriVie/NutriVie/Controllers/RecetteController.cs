@@ -86,6 +86,7 @@ public class RecetteController : Controller
         {
             return NotFound();
         }
+        ViewData["CategorieId"] = new SelectList(_context.Categories, "Id", "Nom");
         return View(recette);
     }
 
@@ -94,7 +95,7 @@ public class RecetteController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,Nom,Description,TempsPreparation,TempsCuisson,Image,Categorie")] Recette recette)
+    public async Task<IActionResult> Edit(int? id, Recette recette)
     {
         if (id != recette.Id)
         {
@@ -119,6 +120,7 @@ public class RecetteController : Controller
                     throw;
                 }
             }
+            ViewData["CategorieId"] = new SelectList(_context.Categories, "Id", "Nom");
             return RedirectToAction(nameof(Index));
         }
         return View(recette);
