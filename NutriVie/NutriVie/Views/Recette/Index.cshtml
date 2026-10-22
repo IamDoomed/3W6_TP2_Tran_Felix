@@ -19,10 +19,10 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TempsPreparation)
+                <strong>Durée(min)</strong>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TempsCuisson)
+                <strong>Cuisson(min)</strong>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Image)
@@ -40,16 +40,18 @@
                 @Html.DisplayFor(model => item.Nom)
             </td>
             <td>
-                @Html.DisplayFor(model => item.Description)
+                @* supposé d'être 250px, mais ça match pas l'image dans le TP2, 160px match bien l'image indiquée *@
+                <div style="width:160px">@item.Description</div>
             </td>
             <td>
                 @Html.DisplayFor(model => item.TempsPreparation)
             </td>
             <td>
-                @Html.DisplayFor(model => item.TempsCuisson)
+                @Html.DisplayFor(model => item.TempsCuisson) 
             </td>
             <td>
-                @Html.DisplayFor(model => item.Image)
+                @* @Html.DisplayFor(model => item.Image) *@
+                 <img class="img-fluid" src="~/images/@item.Image" alt="food" style="width:150px; height:auto">
             </td>
             <td>
                 @Html.DisplayFor(model => item.Categorie.Nom)
