@@ -133,6 +133,7 @@ public class RecetteController : Controller
         }
 
         var recette = await _context.Recette
+            .Include(c=>c.Categorie)
             .FirstOrDefaultAsync(m => m.Id == id);
         if (recette == null)
         {
