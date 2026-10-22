@@ -31,9 +31,10 @@
             <td>
                     @if (item.Recettes != null)
                     {
-                        @foreach (var recette in item.Recettes)
+                        @foreach (var recette in item.Recettes.OrderBy(c=>c.Nom))
                         {
-                            @Html.DisplayFor(model => recette.Nom)<br />
+                            <a class="a-recette" asp-action="Edit" asp-route-Id="@recette.Id" asp-controller="Recette">@($"{recette.Nom} ({recette.TempsPreparation} min) ")</a>
+                            
                         }
                     }
                     

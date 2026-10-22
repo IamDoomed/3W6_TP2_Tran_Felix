@@ -17,7 +17,7 @@ public class CategorieController : Controller
     public async Task<IActionResult> Index()    
     {
 
-        return View(await _context.Categorie.Include(c => c.Recettes).ToListAsync());
+        return View(await _context.Categorie.Include(c => c.Recettes).OrderByDescending(cc => cc.Nom).ToListAsync());
     }
 
     // GET: CATEGORIES/Details/5
@@ -50,7 +50,7 @@ public class CategorieController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Nom,Recettes")] Categorie categorie)
+    public async Task<IActionResult> Create(Categorie categorie)
     {
         if (ModelState.IsValid)
         {
