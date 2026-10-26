@@ -52,6 +52,20 @@ public class CategorieController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Categorie categorie)
     {
+        if (categorie.Nom != null)
+        {
+            categorie.Nom = categorie.Nom.Trim();
+        }
+
+        bool nameExists = await _context.Categorie
+        .AnyAsync(c => c.Nom.ToLower() == categorie.Nom.ToLower());
+
+        if (nameExists)
+        {
+            ViewBag.NameExists = true;
+            return View(categorie);
+        }
+
         if (ModelState.IsValid)
         {
             _context.Add(categorie);
