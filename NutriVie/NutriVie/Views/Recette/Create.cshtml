@@ -48,13 +48,12 @@
                 <select asp-for="CategorieId" class="form-control" asp-items="ViewBag.CategorieId"></select>
                 <span asp-validation-for="Categorie" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <button type="submit" class="btn btn-primary rounded-pill">
+                <i class="fa-solid fa-plus me-1"></i> Create
+            </button>
+            <a asp-action="Index" class="btn btn-secondary rounded-pill">
+                <i class="fa-solid fa-circle-arrow-left me-1"></i> Back to List
+            </a>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>

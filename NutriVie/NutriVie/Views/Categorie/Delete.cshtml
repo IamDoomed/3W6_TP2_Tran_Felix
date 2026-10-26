@@ -28,12 +28,19 @@
         <a asp-action="Index">Back to List</a> *@
         @if (hasRecipes)
         {
-            <input type="submit" value="Delete" class="btn btn-danger" disabled title="remove all recipes first pendejo" />
+            <button type="submit" value="Delete" class="btn btn-danger rounded-pill" disabled title="remove all recipes first pendejo">
+                <i class="fa-solid fa-trash me-1"></i> Delete
+            </button>
         }
         else
         {
-            <input type="submit" value="Delete" class="btn btn-danger" />
+
+            <button type="submit" value="Delete" class="btn btn-danger rounded-pill">
+                <i class="fa-solid fa-trash me-1"></i> Delete
+            </button>
         }
-        | <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" class="btn btn-secondary rounded-pill">
+            <i class="fa-solid fa-circle-arrow-left me-1"></i> Back to List
+        </a>
     </form>
 </div>
