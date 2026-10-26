@@ -121,7 +121,9 @@ public class CategorieController : Controller
         }
 
         var categorie = await _context.Categorie
+            .Include(c => c.Recettes)
             .FirstOrDefaultAsync(m => m.Id == id);
+
         if (categorie == null)
         {
             return NotFound();
@@ -135,13 +137,25 @@ public class CategorieController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var categorie = await _context.Categorie.FindAsync(id);
-        if (categorie != null)
+        //var categorie = await _context.Categorie.FindAsync(id);
+        var categorie = await _context.Categorie
+        .Include(c => c.Recettes)
+        .FirstOrDefaultAsync(c => c.Id == id);
+
+        if (categorie == null)
         {
-            _context.Categorie.Remove(categorie);
+            return NotFound();
         }
 
+        // to prevent inspect element manipulation from view
+        if (categorie.Recettes != null && categorie.Recettes.Any())
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+        _context.Categorie.Remove(categorie);
         await _context.SaveChangesAsync();
+
         return RedirectToAction(nameof(Index));
     }
 
