@@ -824,3 +824,12 @@ html {
 body {
   margin-bottom: 60px;
 }*/
+
+.hover-blue-text {
+    color: black; /* Your starting text color */
+    transition: color 0.3s ease; /* Optional: Makes the color change smooth instead of instant */
+}
+
+    .hover-blue-text:hover {
+        color: #007bff; /* Turns blue on hover */
+    }
