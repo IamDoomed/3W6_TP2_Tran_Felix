@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NutriVie.Models;
 using NutriVie.Models.Data;
+using NutriVie.Utility;
 
 public class CategorieController : Controller
 {
@@ -63,6 +64,7 @@ public class CategorieController : Controller
         if (nameExists)
         {
             ViewBag.NameExists = true;
+            TempData[AppConstants.Error] = "Cette catégorie existe déjà.";
             return View(categorie);
         }
 
@@ -164,7 +166,8 @@ public class CategorieController : Controller
         // to prevent inspect element manipulation from view
         if (categorie.Recettes != null && categorie.Recettes.Any())
         {
-            TempData["errorMsg"] = "Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes";
+            TempData[AppConstants.Error] = "Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes";
+            TempData["errMsg"] = "Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes";
             return View(categorie);
         }
 
