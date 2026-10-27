@@ -164,7 +164,8 @@ public class CategorieController : Controller
         // to prevent inspect element manipulation from view
         if (categorie.Recettes != null && categorie.Recettes.Any())
         {
-            return RedirectToAction(nameof(Index));
+            TempData["errorMsg"] = "Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes";
+            return View(categorie);
         }
 
         _context.Categorie.Remove(categorie);

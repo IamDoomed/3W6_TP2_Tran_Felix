@@ -35,12 +35,6 @@
         </dd>
     </dl>
     <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <button type="submit" value="Delete" class="btn btn-danger rounded-pill">
-            <i class="fa-solid fa-trash me-1"></i> Delete
-        </button>
-        <a asp-action="Index" class="btn btn-secondary rounded-pill">
-            <i class="fa-solid fa-circle-arrow-left me-1"></i> Back to List
-        </a>
+        <partial name="_BoutonDelete" />
     </form>
 </div>

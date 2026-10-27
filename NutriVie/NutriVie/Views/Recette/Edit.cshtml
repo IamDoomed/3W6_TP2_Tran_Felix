@@ -44,12 +44,9 @@
                 @* <input asp-for="Categorie" class="form-control" /> *@
                 <span asp-validation-for="Categorie" class="text-danger"></span>
             </div>
-            <button type="submit" value="Save" class="btn btn-primary rounded-pill">
-                <i class="fa-solid fa-floppy-disk me-1"></i> Save
-            </button>
-            <a asp-action="Index" class="btn btn-secondary rounded-pill">
-                <i class="fa-solid fa-circle-arrow-left me-1"></i> Back to List
-            </a>
+            
+            <partial name="_BoutonEdit"/>
+
         </form>
     </div>
 </div>
