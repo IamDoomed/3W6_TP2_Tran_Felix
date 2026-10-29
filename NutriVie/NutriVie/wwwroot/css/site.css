@@ -833,3 +833,28 @@ body {
     .hover-blue-text:hover {
         color: #007bff; /* Turns blue on hover */
     }
+
+.stat-line {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.table-stats {
+    width: 100%;
+    max-width: 520px;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+    .table-stats th {
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1.5px solid #000;
+        border-top: 1.5px solid #000;
+        font-weight: bold;
+    }
+
+    .table-stats td {
+        padding: 12px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }

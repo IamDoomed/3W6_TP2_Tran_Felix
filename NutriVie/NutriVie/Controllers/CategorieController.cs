@@ -167,7 +167,7 @@ public class CategorieController : Controller
         if (categorie.Recettes != null && categorie.Recettes.Any())
         {
             TempData[AppConstants.Error] = "Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes";
-            TempData["errMsg"] = "Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes";
+            ViewBag.RecetteExists = true;
             return View(categorie);
         }
 

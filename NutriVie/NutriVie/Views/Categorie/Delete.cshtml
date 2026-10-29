@@ -18,9 +18,9 @@
             @Html.DisplayFor(model => model.Nom)
         </dd>
     </dl>
-    @if (TempData["errorMsg"] != null)
+    @if (ViewBag.RecetteExists == true)
     {
-        <div style="color: gold;">@TempData["errorMsg"]</div>
+        <div style="color: gold;">Vous ne pouvez pas supprimer cette catégorie parce qu'elle contient des recettes</div>
     }
 
     <form asp-action="Delete">

@@ -18,11 +18,11 @@
                 <input asp-for="Nom" class="form-control" />
                 <span asp-validation-for="Nom" class="text-danger"></span>
             </div>
-
             @if (ViewBag.NameExists == true)
-            {
-                <div style="color: gold;">Cette catégorie existe déjà.</div>
-            }
+			{
+				<div style="color: gold;">Cette catégorie existe déjà.</div>
+			}
+            
 
             
            @* <button type="submit" class="btn btn-primary rounded-pill">
